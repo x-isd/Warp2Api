@@ -1,4 +1,4 @@
-FROM ghcr.io/astral-sh/uv:latest
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
 WORKDIR /app
 ENV WARP_LOG_LEVEL=info
 ENV WARP_ACCESS_LOG=true
