@@ -5,5 +5,6 @@ ENV WARP_ACCESS_LOG=true
 ENV OPENAI_LOG_LEVEL=info
 ENV OPENAI_ACCESS_LOG=true
 COPY pyproject.toml uv.lock ./
+RUN uv sync --frozen
 COPY . .
-uv run ./start.py
+CMD ["uv", "run", "./start.py"]
