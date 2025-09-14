@@ -16,7 +16,7 @@ async def main():
     warp_thread = threading.Thread(
         target=uvicorn.run,
         args=(warp_app,),
-        kwargs={"host": "0.0.0.0", "port": 8000, "log_level": "info", "access_log": True},
+        kwargs={"host": "127.0.0.1", "port": 8000, "log_level": "info", "access_log": True},
         daemon=True
     )
     warp_thread.start()
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     asyncio.run(main())
     uvicorn.run(
         openai_server,
-        host=os.getenv("HOST", "127.0.0.1"),
+        host=os.getenv("HOST", "0.0.0.0"),
         port=int(os.getenv("PORT", "8010")),
         log_level="info",
     )
